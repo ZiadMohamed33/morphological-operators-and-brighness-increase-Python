@@ -1,0 +1,20 @@
+1)Top Hat / White Hat : Top Hat Transform, also known as the White Hat Transform, is obtained by removing or subtracting the Opening of the image from the original image. 
+This operator gives us the bright features in the image that are smaller than the Structuring Element. Image-open(I,B)
+
+Black Hat / Bottom Hat— The Black Hat Transform, also known as the Bottom Hat Transform, is obtained by removing or subtracting the Closing of the image and the original image. 
+This operator gives us the dark features in the image that are smaller than the Structuring Element. close(I,B)-Image
+
+After obtaining the Top and Black Hat Transforms of the input image, we will add the Top Hat Transform to the input image in order to make its bright regions brighter,
+and subtract the Black Hat Transform from the input image to make its dark regions darker.
+
+2)The minute features in the objects are now more prominent and clear than with smal kernals, but we can see some noisy areas in the output image,
+ near the boundaries of the image i.e. the white patches in the background.
+As Top and Black Hat Transforms give us the brighter and darker features respectively that are smaller than the Structuring Element, 
+
+this method of Contrast Enhancement will work well if the size of the features to enhance are smaller than the size of our chosen Structuring Element. 
+Thus, it becomes difficult to accurately enhance the contrast of larger features, 
+as greater sizes of our kernel will introduce larger noisy areas in our image background.
+
+3)a and b is basically the ration of bright parts to dark parts in image as a increases bright parts bright intensity and b increases black parts darkeness intensity
+4)to decrease contrast we basically need to decrease intensity of bright pixels and increase intensity of dark pixels to overall decrase the diffrence between high and low pixels 
+it would be something like : I+(close(I,B)-Image)-(Image-open(I,B))
